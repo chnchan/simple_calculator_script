@@ -26,7 +26,7 @@ QString readExpression(char *inputFile)
 
 int main(int argc, char *argv[])
 {
-    MathSolver evaluator;
+    MathSolver solver;
 
     // Display user manual if lacking argument
     if(argc < 2) 
@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
         try
         {
             QString expression = readExpression(argv[i]);
-            evaluator.validateExpression(expression);
-            QString result = evaluator.evaluate(expression);
+            solver.validateExpression(expression);
+            QString result = solver.solve(expression);
             std::cout << expression.toStdString() + " = " + result.toStdString() << std::endl;
         }
         catch(const std::exception& e)
